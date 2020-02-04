@@ -8,6 +8,10 @@ This is a web application designed to assist the user with keeping track of thei
 
 The application will store the events locally on the client machine. Update each hour and make sure you click on the save button for each hour that you edit. A sample entry for Lunch is automatically populated at 12:00 PM each day.
 
+### Demo
+
+<https://reithal.github.io/WorkDayScheduler/>
+
 ## Technology
 
 This website was built with HTML5, CSS, JavaScript, Bootstrap 4 and JQuery.
