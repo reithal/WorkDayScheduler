@@ -28,6 +28,10 @@ body {
   background-position: center;
 }
 
+.jumbotron {
+  background-color: #a2d3efdb;
+  border-radius: 10px;
+}
 
 .container {
   margin-top: 10px;
@@ -47,11 +51,13 @@ table input {
   height: 100%;
   width: 100%;
   border: 0;
+  border-color: grey;
   background-color: transparent;
   padding: 10px;
 }
 tbody, thead {
   background-color: white;
+  
   
 }
 
@@ -69,7 +75,6 @@ table .save-btn {
   padding: 10px;
   height: 100%;
   width: 100%;
-
 }
 
 footer {

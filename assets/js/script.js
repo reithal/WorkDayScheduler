@@ -52,16 +52,31 @@ var workday = {
     ]
 
     
-  }
+  };
+
+
   function constructDay () {
     $('tbody').empty();
-
+    
     for (i = 0; i < workday.events.length; i++) {
-      var hourRow = $('<tr>');
-      hourRow.append('<td style="width: 10%; text-align: center" class="col">' + workday.events[i].hour + '</td>');
-      hourRow.append('<td class="col"><input id="inputIndex' + i + '" type="text" placeholder="" value="' + workday.events[i].description + '"></td>');
-      hourRow.append('<td class="col"><button class="save-btn" data-index="' + i + '" type="submit"><i class="far fa-save"></i></button></td>');
-      $('tbody').append(hourRow);
+      var getRowHour = todayDay + " " + workday.events[i].hour;
+      var fromNow = moment(getRowHour).fromNow().includes("ago");
+      var coloCode;
+    
+
+
+      var tableRow = $('<tr>');
+      if (fromNow) {
+        colorCode = "table-danger";
+      }
+      else{
+        colorCode = "table-success";
+      }
+      tableRow.append('<td style="width: 10%; text-align: center" class="col">' + workday.events[i].hour + '</td>');
+      tableRow.append('<td class="col '+ colorCode + '"><input id="inputIndex' + i + '" type="text" placeholder="" value="' + workday.events[i].description + '"></td>');
+      tableRow.append('<td class="col"><button class="save-btn" data-index="' + i + '" type="submit"><i class="far fa-save"></i></button></td>');
+      $('tbody').append(tableRow);
+     
     }
   };
 
