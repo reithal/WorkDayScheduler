@@ -1,7 +1,7 @@
 /* 
-  script.js  
+  script.js  For Workday Scheduler
   Author: Carlos Mazon
-  TODO: Update Date and description
+
   Date: 
 
 
@@ -74,12 +74,13 @@ var workday = {
 
   function checkLocal() {
     var workingDay = JSON.parse(localStorage.getItem("DATE-" + todayDay));
+    console.log(workingDay);
     if (workingDay === null){
       console.log("true for checkLocal")
       return null;   
     } 
     else {
-      console.log("false for checklocal")
+      console.log("false for checklocal so return " + workingDay)
       return workingDay;
     }
   }
@@ -88,7 +89,7 @@ var workday = {
     localStorage.setItem("DATE-" + todayDay , JSON.stringify(workday));
   };
 
-
+// INIT
   var data = checkLocal();
   if (data === null) {
     workday.dateSet = todayDay;
@@ -98,7 +99,6 @@ var workday = {
     workday = data;
     console.log(workday);
     constructDay();
-   
   }
   
   $(document).on("click", ".save-btn", function(){
@@ -108,6 +108,42 @@ var workday = {
     writeLocal();
   });
   
-  $(document).on("click", ".next-btn", function(){
-    currentDate.add(1, "day")
+  $("#next-btn").on("click", function(){
+    todayDay = currentDate.add(1, "day").format("M/DD/YYYY");
+    $('#currentDate').html(moment(todayDay).format("dddd MMMM Do, YYYY"));
+    data = checkLocal();
+    if (data === null) {
+      console.log(todayDay)
+      workday.dateSet = todayDay;
+       for (i=0; i<workday.events.length; i++){
+        workday.events[i].description ="";
+       };
+      constructDay();
+    }
+    else {
+      workday = data;
+      console.log(workday);
+      constructDay();
+    }
+    
+  });
+
+  $("#prev-btn").on("click", function(){
+    todayDay = currentDate.subtract(1, "day").format("M/DD/YYYY");
+    $('#currentDate').html(moment(todayDay).format("dddd MMMM Do, YYYY"));
+    data = checkLocal();
+    if (data === null) {
+      console.log(todayDay)
+      workday.dateSet = todayDay;
+      for (i=0; i<workday.events.length; i++){
+        workday.events[i].description ="";
+       };
+      constructDay();
+    }
+    else {
+      workday = data;
+      console.log(workday);
+      constructDay();
+    }
+    
   });
