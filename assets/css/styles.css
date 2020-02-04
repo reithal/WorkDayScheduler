@@ -2,12 +2,28 @@
    Template Style Sheet
 */
 
+nav {
+  
+  background-color: 
+  color: whitesmoke;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
 body {
   text-align: left;
+  background-image: url(../images/nils-rasmusson.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
 .container {
+  margin-top: 10px;
   width: 80%;
 }
 
@@ -26,6 +42,10 @@ table input {
   border: 0;
   background-color: transparent;
   padding: 10px;
+}
+tbody, thead {
+  background-color: white;
+  
 }
 
 th, td {
@@ -48,8 +68,8 @@ table .save-btn {
 footer {
   text-align: center;
   padding-top: 5px;
-  background-color: rgb(70, 69, 69);
-  color: whitesmoke;
+  background-color: white;
+  color: grey;
   width: 100%;
   position: fixed;
   border-top: 4px solid rgb(153, 152, 152);
